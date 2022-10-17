@@ -13,11 +13,16 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.espaciodearte.ui.theme.EspacioDeArteTheme
 import com.example.espaciodearte.ui.theme.Shapes
 
@@ -40,8 +45,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ArtworkFrameApp() {
-    Column() {
+    Column(
+        modifier = Modifier.padding(32.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         ArtworkWall(drawableResourceId = R.drawable._25px_las_meninas_01)
+        Spacer(modifier = Modifier.height(4.dp))
+        ArtworkDescriptor()
     }
 }
 
@@ -50,16 +61,18 @@ fun ArtworkWall(drawableResourceId: Int) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .shadow(
+                elevation = 16.dp,
+                shape = RectangleShape,
+                clip = true
+            )
     ) {
-        Spacer(modifier = Modifier.height(64.dp))
         Image(
             painter = painterResource(id = drawableResourceId),
             contentDescription = null,
-            //contentScale = ContentScale.Inside,
             modifier = Modifier
-                .padding(16.dp)
-                .border(width = 4.dp, Color.DarkGray)
+                .border(width = 2.dp, Color.DarkGray)
                 .background(Color.White)
                 .padding(32.dp)
         )
@@ -68,6 +81,23 @@ fun ArtworkWall(drawableResourceId: Int) {
 
 @Composable
 fun ArtworkDescriptor() {
+    Column(
+        modifier = Modifier.background(Color.White).padding(32.dp)
+    ) {
+        Text(
+            text = "Las Meninas",
+            fontSize = 28.sp,
+            fontStyle = FontStyle.Normal,
+            fontFamily = FontFamily.SansSerif
+        )
+        Text(
+            text = "Diego Velázquez (1656)",
+            fontSize = 12.sp
+        )
+    }
+}
+@Composable
+fun DisplayController(){
 
 }
 
