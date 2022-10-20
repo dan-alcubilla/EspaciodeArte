@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Espacio de Arte</string>
+    <string name="paint_name_1">Las Meninas</string>
+    <string name="artist_name_1">Diego Velázquez</string>
+    <string name="year_paint_1">(1656)</string>
+    <string name="paint_name_2">San Jeronimo Penitente</string>
+    <string name="artist_name_2">Caravaggio</string>
+    <string name="year_paint_2">(1605)</string>
+    <string name="paint_name_3">La tormenta en el mar de Galilea</string>
+    <string name="artist_name_3">Rembrandt</string>
+    <string name="year_paint_3">(1633)</string>
+    <string name="previous_button">Anterior</string>
+    <string name="next_button">Siguiente</string>
 </resources>
